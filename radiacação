@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h> // Necessário para a função sqrt()
+
+int main() {
+    double numero, raiz;
+    
+    // Solicita a entrada de um número
+    printf("Digite um número: ");
+    scanf("%lf", &numero);
+    
+    // Verifica se o número é negativo
+    if (numero < 0) {
+        printf("Não é possível calcular a raiz quadrada de um número negativo no conjunto dos reais.\n");
+    } else {
+        // Calcula a raiz quadrada
+        raiz = sqrt(numero);
+        
+        // Exibe o resultado com duas casas decimais
+        printf("A raiz quadrada de %.2f é: %.2f\n", numero, raiz);
+    }
+    
+    return 0;
+}
