@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int num1, num2, quociente;
+    
+    // Solicita a entrada dos dois números inteiros
+    printf("Digite o primeiro número (dividendo): ");
+    scanf("%d", &num1);
+    
+    printf("Digite o segundo número (divisor): ");
+    scanf("%d", &num2);
+    
+    // Verifica se o divisor é zero para evitar erros
+    if (num2 == 0) {
+        printf("Erro: Divisão por zero não é permitida.\n");
+    } else {
+        // Calcula o quociente da divisão inteira usando o operador /
+        quociente = num1 / num2;
+        
+        // Exibe o resultado
+        printf("O quociente da divisão inteira de %d por %d é: %d\n", num1, num2, quociente);
+    }
+    
+    return 0;
+}
