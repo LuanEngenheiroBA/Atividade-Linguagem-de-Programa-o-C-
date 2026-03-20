@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int numero, sucessor;
+    
+    // Solicita a entrada de um número inteiro
+    printf("Digite um número inteiro: ");
+    scanf("%d", &numero);
+    
+    // Calcula o sucessor
+    sucessor = numero + 1;
+    
+    // Exibe o resultado
+    printf("O sucessor de %d é: %d\n", numero, sucessor);
+    
+    return 0;
+}
