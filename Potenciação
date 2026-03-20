@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h> // Necessário para a função pow()
+
+int main() {
+    double num1, num2;
+    double res1, res2;
+    
+    // Solicita a entrada de dois números inteiros
+    printf("Digite o primeiro número: ");
+    scanf("%lf", &num1);
+    
+    printf("Digite o segundo número: ");
+    scanf("%lf", &num2);
+    
+    // Calcula as potências
+    // pow(base, expoente)
+    res1 = pow(num1, num2);
+    res2 = pow(num2, num1);
+    
+    // Exibe os resultados
+    printf("%.0f elevado a %.0f é: %.2f\n", num1, num2, res1);
+    printf("%.0f elevado a %.0f é: %.2f\n", num2, num1, res2);
+    
+    return 0;
+}
