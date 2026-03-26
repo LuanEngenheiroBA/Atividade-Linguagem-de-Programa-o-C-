@@ -1,0 +1,24 @@
+using System;
+
+class Program {
+    static void Main() {
+        double soma = 0;
+        int quantidadeNotas = 5;
+
+        for (int i = 1; i <= quantidadeNotas; i++) {
+            Console.Write($"Digite a nota {i}: ");
+            
+            // Converte a entrada de texto para número decimal (double)
+            double nota = double.Parse(Console.ReadLine());
+            
+            // Acumula a nota na variável soma
+            soma += nota;
+        }
+
+        // Calcula a média final
+        double media = soma / quantidadeNotas;
+
+        Console.WriteLine("\n--- Resultado ---");
+        Console.WriteLine($"A média aritmética das 5 notas é: {media:F2}");
+    }
+}
