@@ -1,0 +1,22 @@
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        Console.Write("Digite um número: ");
+        int numero = Convert.ToInt32(Console.ReadLine());
+        
+        if (numero % 2 != 0)
+            numero++;
+        
+        Console.WriteLine("\nPróximos 10 números pares:");
+        Console.WriteLine("========================");
+        
+        for(int i = 1; i <= 10; i++)
+        {
+            Console.WriteLine(i + ". " + numero);
+            numero += 2;
+        }
+    }
+}
