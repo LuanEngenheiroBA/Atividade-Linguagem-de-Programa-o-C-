@@ -1,0 +1,16 @@
+using System;
+
+class Program {
+    static void Main() {
+        // Laço de repetição para ler 5 números
+        for (int i = 1; i <= 5; i++) {
+            Console.Write($"Digite o {i}º número: ");
+            
+            // Lê a entrada como string e armazena
+            string entrada = Console.ReadLine();
+            
+            // Imprime imediatamente o número lido (Eco)
+            Console.WriteLine("Eco: " + entrada);
+        }
+    }
+}
