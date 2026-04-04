@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int numero;
+
+    // Solicita a entrada do usuário
+    printf("Digite um número inteiro: ");
+    if (scanf("%d", &numero) != 1) {
+        printf("Entrada inválida. Por favor, digite um número inteiro.\n");
+        return 1;
+    }
+
+    // Imprime os 5 sucessores
+    printf("Os 5 sucessores de %d são:\n", numero);
+    for (int i = 1; i <= 5; i++) {
+        printf("%d ", numero + i);
+    }
+    printf("\n");
+
+    return 0;
+}
