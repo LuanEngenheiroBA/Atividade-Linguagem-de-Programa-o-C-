@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int numero;
+
+    printf("Algoritmo ECO: Digite 5 números e cada um será impresso imediatamente.\n");
+
+    for (int i = 0; i < 5; i++) {
+        printf("Digite o número %d: ", i + 1);
+        
+        // Lê o número do teclado
+        if (scanf("%d", &numero) != 1) {
+            printf("Entrada inválida. Por favor, digite um número inteiro.\n");
+            // Limpa o buffer de entrada
+            while (getchar() != '\n'); 
+            i--; // Tenta ler novamente a mesma posição
+            continue;
+        }
+        
+        // Imprime imediatamente o número lido
+        printf("Você digitou: %d\n", numero);
+    }
+
+    printf("Leitura dos 5 números concluída.\n");
+
+    return 0;
+}
