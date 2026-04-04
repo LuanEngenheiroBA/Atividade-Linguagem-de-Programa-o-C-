@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double cateto1, cateto2, hipotenusa;
+
+    printf("Calculadora de Hipotenusa de Triângulo Retângulo\n");
+
+    // Leitura do primeiro cateto
+    printf("Digite o valor do primeiro cateto: ");
+    if (scanf("%lf", &cateto1) != 1 || cateto1 <= 0) {
+        printf("Entrada inválida. Por favor, digite um número positivo.\n");
+        return 1;
+    }
+
+    // Leitura do segundo cateto
+    printf("Digite o valor do segundo cateto: ");
+    if (scanf("%lf", &cateto2) != 1 || cateto2 <= 0) {
+        printf("Entrada inválida. Por favor, digite um número positivo.\n");
+        return 1;
+    }
+
+    // Cálculo da hipotenusa: h = raiz_quadrada(cateto1^2 + cateto2^2)
+    hipotenusa = sqrt(pow(cateto1, 2) + pow(cateto2, 2));
+
+    // Exibição do resultado
+    printf("\nOs catetos informados são: %.2lf e %.2lf\n", cateto1, cateto2);
+    printf("A hipotenusa do triângulo retângulo é: %.2lf\n", hipotenusa);
+
+    return 0;
+}
