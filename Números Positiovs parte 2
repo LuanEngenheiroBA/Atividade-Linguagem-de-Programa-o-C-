@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    float numero;
+    int positivos = 0;
+    
+    printf("Digite 5 números:\n");
+    
+    // O laço executa 5 vezes para ler cada número
+    for (int i = 0; i < 5; i++) {
+        // scanf retorna 1 se a leitura do número for bem-sucedida
+        if (scanf("%f", &numero) == 1) {
+            // Verifica se o número é positivo (maior que 0)
+            if (numero > 0) {
+                positivos++;
+            }
+        }
+    }
+    
+    printf("\nQuantidade de números positivos: %d\n", positivos);
+    
+    return 0;
+}
