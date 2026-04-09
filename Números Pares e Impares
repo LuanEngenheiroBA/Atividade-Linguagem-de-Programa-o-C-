@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int numero;
+    int pares = 0;
+    int impares = 0;
+    
+    printf("Digite 10 números inteiros:\n");
+    
+    // O laço executa 10 vezes para ler cada número
+    for (int i = 1; i <= 10; i++) {
+        // scanf retorna 1 se a leitura for bem-sucedida
+        if (scanf("%d", &numero) == 1) {
+            // Dica: num % 2 == 0 significa que o número é par
+            if (numero % 2 == 0) {
+                pares++;
+            } else {
+                impares++;
+            }
+        }
+    }
+    
+    printf("\nQuantidade de números pares: %d\n", pares);
+    printf("Quantidade de números ímpares: %d\n", impares);
+    
+    return 0;
+}
