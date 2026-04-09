@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    int num1, num2;
+    int acumulador = 0;
+    
+    printf("Digite o primeiro número inteiro: ");
+    scanf("%d", &num1);
+    printf("Digite o segundo número inteiro: ");
+    scanf("%d", &num2);
+    
+    // Pegamos os valores absolutos para realizar o laço de soma
+    int a = (num1 < 0) ? -num1 : num1;
+    int b = (num2 < 0) ? -num2 : num2;
+    
+    printf("\nProcesso: %d x %d = ", num1, num2);
+    
+    if (b == 0 || a == 0) {
+        printf("0");
+    } else {
+        for (int i = 0; i < b; i++) {
+            acumulador += a;
+            printf("%d", a);
+            if (i < b - 1) {
+                printf(" + ");
+            }
+        }
+    }
+    
+    // Determina o sinal final (positivo se sinais iguais, negativo se diferentes)
+    int resultado_final;
+    if ((num1 < 0 && num2 > 0) || (num1 > 0 && num2 < 0)) {
+        resultado_final = -acumulador;
+    } else {
+        resultado_final = acumulador;
+    }
+    
+    printf(" = %d\n", resultado_final);
+    
+    return 0;
+}
