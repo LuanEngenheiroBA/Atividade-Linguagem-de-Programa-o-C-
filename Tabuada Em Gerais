@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int numero;
+    int continuar;
+
+    do {
+        printf("Digite um número para ver a sua tabuada: ");
+        // Verifica se a entrada do número é válida
+        if (scanf("%d", &numero) != 1) {
+            printf("Entrada inválida!\n");
+            // Limpa o buffer do teclado em caso de erro de leitura
+            while(getchar() != '\n');
+            continue;
+        }
+
+        printf("\nTabuada do %d:\n", numero);
+        // Laço para imprimir a tabuada de 1 a 10
+        for (int i = 1; i <= 10; i++) {
+            printf("%d * %d = %d\n", numero, i, numero * i);
+        }
+
+        // Pergunta ao usuário se ele deseja realizar um novo cálculo
+        printf("\nDeseja continuar? (1-SIM ou 0-NÃO): ");
+        scanf("%d", &continuar);
+        printf("\n");
+
+    } while (continuar == 1); // Continua se o usuário digitar 1
+
+    printf("Programa encerrado. Até a próxima!\n");
+
+    return 0;
+}
