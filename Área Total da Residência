@@ -1,35 +1,31 @@
-using System;
+#include <stdio.h>
 
-public class AreaResidencia
-{
-    public static void Main(string[] args)
-    {
-        double areaTotal = 0;
-        int continuar = 1;
+int main() {
+    float largura, comprimento, area_comodo, area_total = 0;
+    int continuar;
 
-        Console.WriteLine("Calculadora de Área Total da Residência");
-        Console.WriteLine("------------------------------------");
+    printf("--- Calculadora de Área Residencial ---\n");
 
-        while (continuar == 1)
-        {
-            Console.Write("\nDigite a largura do cômodo (em metros): ");
-            double largura = Convert.ToDouble(Console.ReadLine());
+    do {
+        printf("\nDigite a largura do cômodo (m): ");
+        scanf("%f", &largura);
+        
+        printf("Digite o comprimento do cômodo (m): ");
+        scanf("%f", &comprimento);
 
-            Console.Write("Digite o comprimento do cômodo (em metros): ");
-            double comprimento = Convert.ToDouble(Console.ReadLine());
+        area_comodo = largura * comprimento;
+        area_total += area_comodo;
 
-            double areaComodo = largura * comprimento;
-            areaTotal += areaComodo;
+        printf("Área deste cômodo: %.2f m²\n", area_comodo);
 
-            Console.WriteLine($"Área do cômodo: {areaComodo:F2} m²");
+        printf("\nDeseja adicionar outro cômodo? (1-Sim / 0-Não): ");
+        scanf("%d", &continuar);
 
-            Console.Write("\nDeseja adicionar outro cômodo? (1 para Sim, 0 para Não): ");
-            continuar = Convert.ToInt32(Console.ReadLine());
-        }
+    } while (continuar == 1);
 
-        Console.WriteLine("\n------------------------------------");
-        Console.WriteLine($"A área total da residência é: {areaTotal:F2} m²");
-        Console.WriteLine("Pressione qualquer tecla para sair.");
-        Console.ReadKey();
-    }
+    printf("\n---------------------------------------\n");
+    printf("Área total da residência: %.2f m²\n", area_total);
+    printf("---------------------------------------\n");
+
+    return 0;
 }
