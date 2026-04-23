@@ -1,0 +1,35 @@
+using System;
+
+public class AreaResidencia
+{
+    public static void Main(string[] args)
+    {
+        double areaTotal = 0;
+        int continuar = 1;
+
+        Console.WriteLine("Calculadora de Área Total da Residência");
+        Console.WriteLine("------------------------------------");
+
+        while (continuar == 1)
+        {
+            Console.Write("\nDigite a largura do cômodo (em metros): ");
+            double largura = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Digite o comprimento do cômodo (em metros): ");
+            double comprimento = Convert.ToDouble(Console.ReadLine());
+
+            double areaComodo = largura * comprimento;
+            areaTotal += areaComodo;
+
+            Console.WriteLine($"Área do cômodo: {areaComodo:F2} m²");
+
+            Console.Write("\nDeseja adicionar outro cômodo? (1 para Sim, 0 para Não): ");
+            continuar = Convert.ToInt32(Console.ReadLine());
+        }
+
+        Console.WriteLine("\n------------------------------------");
+        Console.WriteLine($"A área total da residência é: {areaTotal:F2} m²");
+        Console.WriteLine("Pressione qualquer tecla para sair.");
+        Console.ReadKey();
+    }
+}
