@@ -1,22 +1,30 @@
-using System;
+#include <stdio.h>
 
-public class Program
-{
-    public static void Main()
-    {
-        Console.Write("Digite um número: ");
-        int numero = Convert.ToInt32(Console.ReadLine());
-        
-        if (numero % 2 != 0)
-            numero++;
-        
-        Console.WriteLine("\nPróximos 10 números pares:");
-        Console.WriteLine("========================");
-        
-        for(int i = 1; i <= 10; i++)
-        {
-            Console.WriteLine(i + ". " + numero);
-            numero += 2;
-        }
+int main() {
+    int numero, i, contador = 0;
+
+    printf("--- Gerador de Números Pares Seguintes ---\n");
+    printf("Digite um número inteiro: ");
+    
+    if (scanf("%d", &numero) != 1) {
+        printf("Entrada inválida.\n");
+        return 1;
     }
+
+    if (numero % 2 == 0) {
+        printf("\nO número %d é par. Os próximos 10 números pares são:\n", numero);
+        // Começamos do próximo número par
+        int proximo = numero + 2;
+        for (i = 0; i < 10; i++) {
+            printf("%d ", proximo);
+            proximo += 2;
+        }
+        printf("\n");
+    } else {
+        printf("\nO número %d não é par. Nenhuma ação será realizada.\n", numero);
+    }
+    
+    printf("------------------------------------------\n");
+
+    return 0;
 }
