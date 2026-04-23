@@ -1,17 +1,21 @@
-using System;
+#include <stdio.h>
 
-public class Program
-{
-    public static void Main()
-    {
-        Console.Write("Digite um número: ");
-        int numero = Convert.ToInt32(Console.ReadLine());
-        
-        Console.WriteLine("\nOs 5 sucessores de " + numero + " são:");
-        
-        for(int i = 1; i <= 5; i++)
-        {
-            Console.WriteLine(numero + i);
-        }
+int main() {
+    int numero, i;
+
+    printf("--- Gerador de Sucessores ---\n");
+    printf("Digite um número inteiro: ");
+    
+    if (scanf("%d", &numero) != 1) {
+        printf("Entrada inválida. Por favor, digite um número inteiro.\n");
+        return 1;
     }
+
+    printf("\nOs 5 sucessores de %d são:\n", numero);
+    for (i = 1; i <= 5; i++) {
+        printf("%d ", numero + i);
+    }
+    printf("\n-----------------------------\n");
+
+    return 0;
 }
