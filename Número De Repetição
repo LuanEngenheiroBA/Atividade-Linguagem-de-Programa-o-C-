@@ -1,16 +1,22 @@
-using System;
+#include <stdio.h>
 
-class Program {
-    static void Main() {
-        // Laço de repetição para ler 5 números
-        for (int i = 1; i <= 5; i++) {
-            Console.Write($"Digite o {i}º número: ");
-            
-            // Lê a entrada como string e armazena
-            string entrada = Console.ReadLine();
-            
-            // Imprime imediatamente o número lido (Eco)
-            Console.WriteLine("Eco: " + entrada);
+int main() {
+    float numero;
+    int i;
+
+    printf("--- Algoritmo ECO (5 números) ---\n");
+
+    for (i = 1; i <= 5; i++) {
+        printf("Digite o número %d: ", i);
+        // Lê o número
+        if (scanf("%f", &numero) != 1) {
+            printf("Entrada inválida!\n");
+            return 1;
         }
+        // Imprime imediatamente (efeito ECO)
+        printf("ECO: %.2f\n\n", numero);
     }
+
+    printf("Fim do algoritmo.\n");
+    return 0;
 }
