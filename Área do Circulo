@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+#define PI 3.14159265
+
+int main() {
+    float raio;
+
+    printf("======= CALCULO DO CIRCULO =======\n");
+
+    printf("\nDigite o raio do circulo: ");
+    scanf("%f", &raio);
+
+    while (raio <= 0) {
+        printf("Valor invalido! Digite um raio positivo: ");
+        scanf("%f", &raio);
+    }
+
+    float comprimento = 2 * PI * raio;
+
+    printf("\n========== RESULTADO ==========\n");
+    printf("  Raio:         %.2f\n",  raio);
+    printf("  PI:           %.8f\n",  PI);
+    printf("  Comprimento:  %.2f\n",  comprimento);
+    printf("================================\n");
+
+    return 0;
+}
