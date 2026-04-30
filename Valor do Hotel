@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+int main() {
+    int dias;
+    float diaria = 150.0;
+
+    int total_hospedes = 0;
+    int hospedes_mais_20 = 0;
+
+    float soma_valores = 0;
+    float soma_dias = 0;
+    float maior_conta = 0;
+
+    printf("======= SISTEMA HOTELEIRO =======\n");
+    printf("(Digite 0 para encerrar)\n");
+
+    while (1) {
+        printf("\n--- Hospede %d ---\n", total_hospedes + 1);
+        printf("Quantidade de diarias: ");
+        scanf("%d", &dias);
+
+        if (dias == 0) break;
+
+        while (dias < 0) {
+            printf("Valor invalido! Digite um numero positivo: ");
+            scanf("%d", &dias);
+        }
+
+        // Desconto conforme tabela
+        float desconto = 0;
+        if (dias <= 5) {
+            desconto = 0.05;
+        } else if (dias <= 10) {
+            desconto = 0.10;
+        } else {
+            desconto = 0.15;
+        }
+
+        float valor_bruto    = dias * diaria;
+        float valor_desconto = valor_bruto * desconto;
+        float valor_final    = valor_bruto - valor_desconto;
+
+        // b) Valor de cada hóspede
+        printf("  Diarias:       %d\n", dias);
+        printf("  Desconto:      %.0f%%\n", desconto * 100);
+        printf("  Valor bruto:   R$ %.2f\n", valor_bruto);
+        printf("  Desconto:    - R$ %.2f\n", valor_desconto);
+        printf("  TOTAL A PAGAR: R$ %.2f\n", valor_final);
+
+        // Acumuladores
+        total_hospedes++;
+        soma_valores += valor_final;
+        soma_dias    += dias;
+
+        // a) Hóspedes com mais de 20 dias
+        if (dias > 20) hospedes_mais_20++;
+
+        // e) Maior conta
+        if (valor_final > maior_conta) maior_conta = valor_final;
+    }
+
+    // Resultados finais
+    if (total_hospedes == 0) {
+        printf("\nNenhum hospede registrado.\n");
+    } else {
+        printf("\n========== RELATORIO FINAL ==========\n");
+
+        // a)
+        printf("a) Hospedes com mais de 20 diarias:  %d\n", hospedes_mais_20);
+
+        // c)
+        printf("c) Media do valor das contas:        R$ %.2f\n", soma_valores / total_hospedes);
+
+        // d)
+        printf("d) Media de dias de permanencia:     %.1f dias\n", soma_dias / total_hospedes);
+
+        // e)
+        printf("e) Maior conta paga:                 R$ %.2f\n", maior_conta);
+
+        printf("=====================================\n");
+        printf("   Total de hospedes atendidos: %d\n", total_hospedes);
+        printf("=====================================\n");
+    }
+
+    return 0;
+}
