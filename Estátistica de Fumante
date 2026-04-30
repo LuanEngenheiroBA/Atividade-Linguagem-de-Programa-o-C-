@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int main() {
+    int anos, cigarros_por_dia;
+    float preco_carteira;
+
+    printf("======= CALCULADORA DO FUMANTE =======\n");
+
+    printf("\nHa quantos anos voce fuma? ");
+    scanf("%d", &anos);
+
+    while (anos <= 0) {
+        printf("Valor invalido! Digite um numero positivo: ");
+        scanf("%d", &anos);
+    }
+
+    printf("Quantos cigarros voce fuma por dia? ");
+    scanf("%d", &cigarros_por_dia);
+
+    while (cigarros_por_dia <= 0) {
+        printf("Valor invalido! Digite um numero positivo: ");
+        scanf("%d", &cigarros_por_dia);
+    }
+
+    printf("Preco da carteira de cigarros (R$): ");
+    scanf("%f", &preco_carteira);
+
+    while (preco_carteira <= 0) {
+        printf("Valor invalido! Digite um valor positivo: ");
+        scanf("%f", &preco_carteira);
+    }
+
+    // Cálculos
+    int    cigarros_por_carteira = 20;
+    int    dias_por_ano          = 365;
+
+    int    total_dias      = anos * dias_por_ano;
+    int    total_cigarros  = total_dias * cigarros_por_dia;
+    int    total_carteiras = total_cigarros / cigarros_por_carteira;
+    float  total_gasto     = total_carteiras * preco_carteira;
+
+    // Resultados
+    printf("\n========== RELATORIO ==========\n");
+    printf("  Anos fumando:          %d anos\n",      anos);
+    printf("  Cigarros por dia:      %d cigarros\n",  cigarros_por_dia);
+    printf("  Preco da carteira:     R$ %.2f\n",      preco_carteira);
+    printf("--------------------------------\n");
+    printf("  Total de dias:         %d dias\n",      total_dias);
+    printf("  Total de cigarros:     %d cigarros\n",  total_cigarros);
+    printf("  Total de carteiras:    %d carteiras\n", total_carteiras);
+    printf("--------------------------------\n");
+    printf("  TOTAL GASTO:           R$ %.2f\n",      total_gasto);
+    printf("================================\n");
+
+    return 0;
+}
