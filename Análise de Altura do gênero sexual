@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+int main() {
+    float altura;
+    int sexo;
+
+    int total_homens = 0;
+    int total_mulheres = 0;
+    int mulheres_abaixo_165 = 0;
+
+    float soma_altura_total = 0;
+    float soma_altura_mulheres = 0;
+
+    for (int i = 1; i <= 50; i++) {
+        printf("\n--- Pessoa %d ---\n", i);
+
+        printf("Sexo (0 = Masculino | 1 = Feminino): ");
+        scanf("%d", &sexo);
+
+        while (sexo != 0 && sexo != 1) {
+            printf("Valor invalido! Digite 0 para Masculino ou 1 para Feminino: ");
+            scanf("%d", &sexo);
+        }
+
+        printf("Altura (ex: 1.75): ");
+        scanf("%f", &altura);
+
+        while (altura <= 0 || altura > 3.0) {
+            printf("Altura invalida! Digite um valor entre 0 e 3.00: ");
+            scanf("%f", &altura);
+        }
+
+        soma_altura_total += altura;
+
+        if (sexo == 0) {
+            total_homens++;
+        } else {
+            total_mulheres++;
+            soma_altura_mulheres += altura;
+            if (altura < 1.65) {
+                mulheres_abaixo_165++;
+            }
+        }
+    }
+
+    printf("\n========== RESULTADOS ==========\n");
+
+    // a) Média de altura das mulheres
+    if (total_mulheres > 0) {
+        printf("a) Media de altura das mulheres:     %.2f m\n", soma_altura_mulheres / total_mulheres);
+    } else {
+        printf("a) Nenhuma mulher foi registrada.\n");
+    }
+
+    // b) Média de altura da população
+    printf("b) Media de altura da populacao:     %.2f m\n", soma_altura_total / 50);
+
+    // c) Percentual de homens
+    printf("c) Percentual de homens:             %.1f%%\n", (total_homens / 50.0) * 100);
+
+    // d) Quantidade de mulheres
+    printf("d) Quantidade de mulheres:           %d\n", total_mulheres);
+
+    // e) Percentual de mulheres abaixo de 1.65m
+    if (total_mulheres > 0) {
+        printf("e) Mulheres abaixo de 1.65 m:        %.1f%%\n", ((float)mulheres_abaixo_165 / total_mulheres) * 100);
+    } else {
+        printf("e) Nenhuma mulher foi registrada.\n");
+    }
+
+    printf("=================================\n");
+
+    return 0;
+}
