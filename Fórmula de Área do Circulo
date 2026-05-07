@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    float raio, comprimento;
+    
+    // Entrada do raio
+    printf("Digite o raio do circulo: ");
+    scanf("%f", &raio);
+    
+    // Cálculo do comprimento (circunferência)
+    comprimento = 2 * 3.14159 * raio;   // Usando π ≈ 3.14159
+    
+    // Saída do resultado
+    printf("\n");
+    printf("==================================================\n");
+    printf("               RESULTADO                         \n");
+    printf("==================================================\n");
+    printf("Raio informado:        %.2f\n", raio);
+    printf("Comprimento (circunferencia): %.2f\n", comprimento);
+    printf("==================================================\n");
+    
+    return 0;
+}
