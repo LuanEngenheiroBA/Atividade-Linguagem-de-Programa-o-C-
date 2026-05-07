@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    float raio, altura, volume;
+    
+    // Entrada de dados
+    printf("Digite o raio do cilindro: ");
+    scanf("%f", &raio);
+    
+    printf("Digite a altura do cilindro: ");
+    scanf("%f", &altura);
+    
+    // Cálculo do volume: V = π * r² * h
+    volume = 3.14159 * raio * raio * altura;
+    
+    // Saída formatada
+    printf("\n");
+    printf("==================================================\n");
+    printf("               RESULTADO                         \n");
+    printf("==================================================\n");
+    printf("Raio informado:        %.2f\n", raio);
+    printf("Altura informada:      %.2f\n", altura);
+    printf("Volume do cilindro:    %.4f\n", volume);
+    printf("==================================================\n");
+    
+    return 0;
+}
