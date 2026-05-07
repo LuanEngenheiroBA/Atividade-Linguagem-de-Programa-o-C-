@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float largura, comprimento, potencia_lampada;
+    float area, potencia_total;
+    int numero_lampadas;
+    
+    // Entrada de dados
+    printf("Digite a largura do comodo (metros): ");
+    scanf("%f", &largura);
+    
+    printf("Digite o comprimento do comodo (metros): ");
+    scanf("%f", &comprimento);
+    
+    printf("Digite a potencia da lampada (watts): ");
+    scanf("%f", &potencia_lampada);
+    
+    // Cálculos
+    area = largura * comprimento;
+    potencia_total = area * 18.0;                    // 18 watts por m²
+    numero_lampadas = ceil(potencia_total / potencia_lampada);
+    
+    // Saída formatada
+    printf("\n");
+    printf("==================================================\n");
+    printf("               RESULTADO                         \n");
+    printf("==================================================\n");
+    printf("Dimensoes do comodo:   %.2f x %.2f m\n", largura, comprimento);
+    printf("Area do comodo:        %.2f m²\n", area);
+    printf("Potencia necessaria:   %.0f watts\n", potencia_total);
+    printf("Potencia por lampada:  %.0f watts\n", potencia_lampada);
+    printf("--------------------------------------------------\n");
+    printf("Numero de lampadas:    %d\n", numero_lampadas);
+    printf("==================================================\n");
+    
+    return 0;
+}
