@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    float raio, volume;
+    
+    // Entrada do raio
+    printf("Digite o raio da esfera: ");
+    scanf("%f", &raio);
+    
+    // Cálculo do volume: V = (4/3) * π * r³
+    volume = (4.0 / 3.0) * 3.14159 * raio * raio * raio;
+    
+    // Saída formatada
+    printf("\n");
+    printf("==================================================\n");
+    printf("               RESULTADO                         \n");
+    printf("==================================================\n");
+    printf("Raio informado:        %.2f\n", raio);
+    printf("Volume da esfera:      %.4f\n", volume);
+    printf("==================================================\n");
+    
+    return 0;
+}
