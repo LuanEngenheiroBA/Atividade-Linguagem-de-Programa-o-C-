@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+    int anos, cigarros_por_dia;
+    float preco_carteira;
+    
+    // Entrada de dados
+    printf("Quantos anos voce fuma? ");
+    scanf("%d", &anos);
+    
+    printf("Quantos cigarros voce fuma por dia? ");
+    scanf("%d", &cigarros_por_dia);
+    
+    printf("Qual o preco atual de uma carteira de cigarros? R$ ");
+    scanf("%f", &preco_carteira);
+    
+    // Cálculos
+    long long dias = (long long)anos * 365;                    // Total de dias
+    long long total_cigarros = dias * cigarros_por_dia;        // Total de cigarros
+    long long total_carteiras = total_cigarros / 20;           // Total de carteiras (20 cigarros cada)
+    double total_gasto = (double)total_carteiras * preco_carteira;
+    
+    // Saída formatada
+    printf("\n");
+    printf("==================================================\n");
+    printf("                    RESULTADO                     \n");
+    printf("==================================================\n");
+    printf("Anos fumando:          %d anos\n", anos);
+    printf("Cigarros por dia:      %d\n", cigarros_por_dia);
+    printf("Preco da carteira:     R$ %.2f\n", preco_carteira);
+    printf("--------------------------------------------------\n");
+    printf("Total de carteiras:    %lld\n", total_carteiras);
+    printf("Total gasto:           R$ %.2f\n", total_gasto);
+    printf("==================================================\n");
+    
+    return 0;
+}
