@@ -1,0 +1,21 @@
+#include <stdio.h>
+#define PI 3.14159265359
+
+int main() {
+    float raio;
+    
+    printf("Digite o raio do circulo: ");
+    scanf("%f", &raio);
+    
+    float area = PI * raio * raio;
+    
+    printf("\n");
+    printf("==================================================\n");
+    printf("               RESULTADO                         \n");
+    printf("==================================================\n");
+    printf("Raio informado:        %.2f\n", raio);
+    printf("Area do circulo:       %.4f\n", area);
+    printf("==================================================\n");
+    
+    return 0;
+}
