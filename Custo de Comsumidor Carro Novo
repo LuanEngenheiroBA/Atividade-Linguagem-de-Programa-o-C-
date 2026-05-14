@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    float custo_fabrica, custo_consumidor;
+    float distribuidor, impostos;
+
+    // Entrada de dados
+    printf("Digite o custo de fábrica do veículo: R$ ");
+    if (scanf("%f", &custo_fabrica) != 1) {
+        printf("Erro ao ler o valor.\n");
+        return 1;
+    }
+
+    // Cálculos
+    // Distribuidor: 28% sobre o custo de fábrica
+    distribuidor = custo_fabrica * 0.28;
+    
+    // Impostos: 45% sobre o custo de fábrica
+    impostos = custo_fabrica * 0.45;
+    
+    // Custo ao Consumidor: Soma de todos os componentes
+    custo_consumidor = custo_fabrica + distribuidor + impostos;
+
+    // Saída de resultados
+    printf("\n--- Detalhamento do Preço ---\n");
+    printf("Custo de Fábrica: R$ %.2f\n", custo_fabrica);
+    printf("Margem Distribuidor (28%%): R$ %.2f\n", distribuidor);
+    printf("Impostos (45%%): R$ %.2f\n", impostos);
+    printf("-----------------------------\n");
+    printf("Custo ao Consumidor: R$ %.2f\n", custo_consumidor);
+
+    return 0;
+}
