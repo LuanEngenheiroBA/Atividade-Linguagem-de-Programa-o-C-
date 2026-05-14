@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int A, B, C;
+    double R, S, D;
+
+    // Entrada de dados
+    printf("Digite o valor de A (inteiro positivo): ");
+    scanf("%d", &A);
+    printf("Digite o valor de B (inteiro positivo): ");
+    scanf("%d", &B);
+    printf("Digite o valor de C (inteiro positivo): ");
+    scanf("%d", &C);
+
+    // Verificação simples de números positivos
+    if (A < 0 || B < 0 || C < 0) {
+        printf("Erro: Os números devem ser positivos.\n");
+        return 1;
+    }
+
+    // Cálculos
+    // R = (A + B)²
+    R = pow((A + B), 2);
+    
+    // S = (B + C)²
+    S = pow((B + C), 2);
+    
+    // D = (R + S) / 2
+    D = (R + S) / 2.0;
+
+    // Saída de resultados
+    printf("\n--- Resultados ---\n");
+    printf("R = (A + B)² = %.2f\n", R);
+    printf("S = (B + C)² = %.2f\n", S);
+    printf("D = (R + S) / 2 = %.2f\n", D);
+
+    return 0;
+}
