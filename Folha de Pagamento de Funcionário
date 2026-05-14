@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char nome[100];
+    float horas_trabalhadas, valor_hora = 50.00; // Valor fixo para exemplo
+    int num_dependentes;
+    float salario_bruto, salario_liquido, bonus_dependente, inss;
+
+    // Entrada de dados
+    printf("Digite o nome do funcionário: ");
+    fgets(nome, sizeof(nome), stdin);
+    nome[strcspn(nome, "\n")] = 0; // Remove a quebra de linha
+
+    printf("Digite o número de horas trabalhadas: ");
+    scanf("%f", &horas_trabalhadas);
+
+    printf("Digite o número de dependentes: ");
+    scanf("%d", &num_dependentes);
+
+    // Lógica de cálculo (Exemplo padrão)
+    // 1. Salário base pelas horas
+    salario_bruto = horas_trabalhadas * valor_hora;
+    
+    // 2. Bônus por dependente (R$ 150,00 por dependente)
+    bonus_dependente = num_dependentes * 150.00;
+    
+    // 3. Desconto de INSS (Simulação de 11%)
+    inss = salario_bruto * 0.11;
+    
+    // 4. Salário Líquido
+    salario_liquido = (salario_bruto + bonus_dependente) - inss;
+
+    // Saída de resultados
+    printf("\n--- Folha de Pagamento ---\n");
+    printf("Funcionário: %s\n", nome);
+    printf("Horas trabalhadas: %.2f\n", horas_trabalhadas);
+    printf("Dependentes: %d\n", num_dependentes);
+    printf("--------------------------\n");
+    printf("Salário Bruto: R$ %.2f\n", salario_bruto);
+    printf("Bônus Dependentes: R$ %.2f\n", bonus_dependente);
+    printf("Desconto INSS (11%%): R$ %.2f\n", inss);
+    printf("Salário Líquido: R$ %.2f\n", salario_liquido);
+
+    return 0;
+}
