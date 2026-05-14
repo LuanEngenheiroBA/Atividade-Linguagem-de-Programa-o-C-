@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    float odometro_inicial, odometro_final, litros_gastos, preco_combustivel;
+    float km_rodada, km_por_litro, custo_viagem;
+
+    // Entrada de dados
+    printf("Digite a quilometragem inicial (odômetro): ");
+    scanf("%f", &odometro_inicial);
+
+    printf("Digite a quilometragem final (odômetro): ");
+    scanf("%f", &odometro_final);
+
+    printf("Digite a quantidade de litros de combustível gastos: ");
+    scanf("%f", &litros_gastos);
+
+    printf("Digite o preço do combustível por litro: ");
+    scanf("%f", &preco_combustivel);
+
+    // Cálculos
+    km_rodada = odometro_final - odometro_inicial;
+    
+    // Evitar divisão por zero
+    if (litros_gastos > 0) {
+        km_por_litro = km_rodada / litros_gastos;
+    } else {
+        km_por_litro = 0;
+    }
+    
+    custo_viagem = litros_gastos * preco_combustivel;
+
+    // Saída de resultados
+    printf("\n--- Resultados da Viagem ---\n");
+    printf("a) Quilometragem rodada: %.2f km\n", km_rodada);
+    printf("b) Consumo do veículo: %.2f km/l\n", km_por_litro);
+    printf("c) Custo total da viagem: R$ %.2f\n", custo_viagem);
+
+    return 0;
+}
