@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    // Declaração das variáveis
+    float fahrenheit, celsius;
+
+    // Entrada de dados
+    printf("Digite a temperatura em graus Fahrenheit: ");
+    scanf("%f", &fahrenheit);
+
+    // Processamento: Aplicando a fórmula de conversão
+    celsius = (fahrenheit - 32.0) * (5.0 / 9.0);
+
+    // Saída de dados
+    printf("\n========================================\n");
+    printf("%.2f graus Fahrenheit equivalem a %.2f graus Celsius.\n", fahrenheit, celsius);
+    printf("========================================\n");
+
+    return 0;
+}
