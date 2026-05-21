@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    // Declaração das variáveis
+    int numero_vendedor, carros_vendidos;
+    char nome_vendedor[50];
+    float valor_total_vendas, salario_fixo, valor_por_carro, salario_final;
+
+    // Entrada de dados
+    printf("Digite o numero do vendedor: ");
+    scanf("%d", &numero_vendedor);
+
+    // O espaço antes do % na leitura da string limpa o buffer do teclado (o 'Enter' anterior)
+    printf("Digite o nome do vendedor: ");
+    scanf(" %49[^\n]", nome_vendedor); 
+
+    printf("Digite o numero de carros vendidos: ");
+    scanf("%d", &carros_vendidos);
+
+    printf("Digite o valor total das vendas: ");
+    scanf("%f", &valor_total_vendas);
+
+    printf("Digite o salario fixo mensal: ");
+    scanf("%f", &salario_fixo);
+
+    printf("Digite o valor da comissao fixa por carro vendido: ");
+    scanf("%f", &valor_por_carro);
+
+    // Processamento: Cálculo do salário final
+    // Salário Final = Fixo + (Comissão por carro * Nº de carros) + 5% do Total de Vendas
+    salario_final = salario_fixo + (carros_vendidos * valor_por_carro) + (valor_total_vendas * 0.05);
+
+    // Saída de dados
+    printf("\n========================================\n");
+    printf("RESUMO DO VENDEDOR\n");
+    printf("========================================\n");
+    printf("Codigo: %d\n", numero_vendedor);
+    printf("Nome: %s\n", nome_vendedor);
+    printf("Salario Mensal: R$ %.2f\n", salario_final);
+    printf("========================================\n");
+
+    return 0;
+}
