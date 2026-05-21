@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    // Primeira etapa: Imprimir a escala em Celsius
+    printf("Escala em Celsius:\n");
+    for (int celsius = 0; celsius <= 50; celsius += 10) {
+        printf("%d C\n", celsius);
+    }
+
+    printf("\n========================\n\n");
+
+    // Segunda etapa: Imprimir a escala correspondente em Fahrenheit em seguida
+    printf("Escala em Fahrenheit correspondente:\n");
+    for (int celsius = 0; celsius <= 50; celsius += 10) {
+        float fahrenheit = (celsius * 9.0 / 5.0) + 32.0;
+        printf("%.2f F\n", fahrenheit);
+    }
+
+    return 0;
+}
