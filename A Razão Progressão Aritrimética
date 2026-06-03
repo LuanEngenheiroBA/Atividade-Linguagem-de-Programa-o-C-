@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    float razao, primeiro, ultimo, soma;
+    int n;
+
+    // Entrada de dados
+    printf("Digite o primeiro termo da PA: ");
+    scanf("%f", &primeiro);
+
+    printf("Digite o ultimo termo da PA: ");
+    scanf("%f", &ultimo);
+
+    printf("Digite a razao da PA: ");
+    scanf("%f", &razao);
+
+    // 1. Calculo do numero de termos (n)
+    // Formula: n = ((ultimo - primeiro) / razao) + 1
+    n = (int)((ultimo - primeiro) / razao) + 1;
+
+    // 2. Calculo da soma dos elementos
+    // Formula: S = ((primeiro + ultimo) * n) / 2
+    soma = ((primeiro + ultimo) * n) / 2.0;
+
+    // Exibicao do resultado
+    printf("\nNumero de termos (n): %d", n);
+    printf("\nA soma dos elementos da PA eh: %.2f\n", soma);
+
+    return 0;
+}
