@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+// Definimos uma constante para a quantidade de funcionários.
+// Dica: Se quiser testar o código sem precisar digitar 1200 vezes, mude este número para 3.
+#define TOTAL_FUNCIONARIOS 1200 
+
+int main() {
+    // Declaração das variáveis
+    int quantidade_produtos;
+    float salario_fixo, comissao, salario_final;
+    float soma_salarios = 0.0;
+    float maior_salario_fixo = 0.0;
+    float media_salarios;
+
+    // Laço que vai iterar pelos 1200 funcionários
+    for (int i = 1; i <= TOTAL_FUNCIONARIOS; i++) {
+        printf("--- Funcionario %d ---\n", i);
+        
+        printf("Quantidade de produtos vendidos: ");
+        scanf("%d", &quantidade_produtos); // O "%d" lê números inteiros
+        
+        printf("Salario fixo: R$ ");
+        scanf("%f", &salario_fixo); // O "%f" lê números decimais (float)
+
+        // c) Verifica e atualiza o maior salário fixo
+        if (salario_fixo > maior_salario_fixo) {
+            maior_salario_fixo = salario_fixo;
+        }
+
+        // Cálculo da comissão por produto com base na quantidade
+        if (quantidade_produtos <= 5) {
+            comissao = quantidade_produtos * 1.50;
+        } else if (quantidade_produtos <= 50) {
+            comissao = quantidade_produtos * 2.00;
+        } else {
+            comissao = quantidade_produtos * 2.50;
+        }
+
+        // a) O salário que cada funcionário receberá no mês
+        salario_final = salario_fixo + comissao;
+        soma_salarios += salario_final; // Acumula o salário para a média
+        
+        // Exibe o salário final com duas casas decimais ("%.2f")
+        printf("Salario final do funcionario %d: R$ %.2f\n\n", i, salario_final);
+    }
+
+    // b) A média dos salários pagos pela empresa
+    media_salarios = soma_salarios / TOTAL_FUNCIONARIOS;
+
+    // Exibição dos resultados globais
+    printf("========================================\n");
+    printf("           RESULTADOS FINAIS            \n");
+    printf("========================================\n");
+    printf("Media dos salarios pagos: R$ %.2f\n", media_salarios);
+    printf("Maior salario fixo da empresa: R$ %.2f\n", maior_salario_fixo);
+
+    return 0; // Indica que o programa terminou com sucesso
+}
