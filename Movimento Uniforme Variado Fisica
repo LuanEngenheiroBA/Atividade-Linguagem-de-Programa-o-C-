@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    // Declaração de variáveis usando 'double' para maior precisão decimal
+    double H, R, altura_atual, distancia_total;
+    int N;
+
+    // Entrada de dados
+    printf("Digite a altura inicial da queda (H): ");
+    scanf("%lf", &H);
+    
+    printf("Digite o coeficiente de salto (R) entre 0 e 1: ");
+    scanf("%lf", &R);
+    
+    printf("Digite o numero de saltos (N): ");
+    scanf("%d", &N);
+
+    // Inicializando as variáveis para antes do 1º salto
+    altura_atual = H;
+    distancia_total = H; // A bola primeiro cai a altura H inteira (apenas desce)
+
+    // Laço para calcular o trajeto a cada salto até N
+    for (int i = 1; i <= N; i++) {
+        // A nova altura é a altura do salto anterior vezes o coeficiente R
+        altura_atual = altura_atual * R; 
+        
+        // A bola sobe e desce essa nova altura, por isso multiplicamos por 2
+        distancia_total += (2 * altura_atual); 
+    }
+
+    // Exibição dos resultados com 4 casas decimais para clareza
+    printf("\n========================================\n");
+    printf("Altura do %d-esimo salto: %.4lf\n", N, altura_atual);
+    printf("Distancia total percorrida: %.4lf\n", distancia_total);
+    printf("========================================\n");
+
+    return 0;
+}
