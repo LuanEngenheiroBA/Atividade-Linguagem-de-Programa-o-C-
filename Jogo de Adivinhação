@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+int main() {
+    int numero_secreto;
+    int palpite;
+    int tentativa;
+    int acertou = 0; // Flag para controlar se o jogador acertou (0 = não, 1 = sim)
+
+    printf("=========================================\n");
+    printf("        JOGO DA ADIVINHACAO C            \n");
+    printf("=========================================\n\n");
+
+    // 1. Vez do Jogador 1: Escolha do número com validação (entre 1 e 10)
+    do {
+        printf("Jogador 1, escolha um numero secreto entre 1 e 10: ");
+        scanf("%d", &numero_secreto);
+
+        if (numero_secreto < 1 || numero_secreto > 10) {
+            printf("Numero invalido! Tente novamente.\n\n");
+        }
+    } while (numero_secreto < 1 || numero_secreto > 10);
+
+    // Limpa a tela visualmente pulando linhas para o Jogador 2 não ver o número
+    for (int i = 0; i < 30; i++) {
+        printf("\n");
+    }
+
+    printf("=========================================\n");
+    printf("         VEZ DO JOGADOR 2                \n");
+    printf("     (Voce tem 4 chances para acertar)   \n");
+    printf("=========================================\n\n");
+
+    // 2. Vez do Jogador 2: Loop limitado a 4 tentativas
+    for (tentativa = 1; tentativa <= 4; tentativa++) {
+        printf("Tentativa %d de 4 -> Digite seu palpite: ", tentativa);
+        scanf("%d", &palpite);
+
+        if (palpite == numero_secreto) {
+            acertou = 1; 
+            break; // Interrompe o loop imediatamente pois ele já acertou
+        } else {
+            if (tentativa < 4) {
+                printf("Que pena, voce errou! Tente novamente.\n\n");
+            }
+        }
+    }
+
+    // 3. Resultado Final
+    printf("\n-----------------------------------------\n");
+    printf("            RESULTADO FINAL              \n");
+    printf("-----------------------------------------\n");
+
+    if (acertou) {
+        printf("PARABENS! O Jogador 2 adivinhou o numero!\n");
+        printf("O acerto aconteceu na tentativa numero: %d\n", tentativa);
+    } else {
+        printf("QUE PENA! O Jogador 2 nao conseguiu adivinhar.\n");
+        printf("O numero escolhido pelo Jogador 1 era: %d\n", numero_secreto);
+    }
+    printf("-----------------------------------------\n");
+
+    return 0;
+}
