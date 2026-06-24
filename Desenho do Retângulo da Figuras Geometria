@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    int linhas, colunas;
+
+    // 1. Leitura dos parâmetros
+    printf("Digite o numero de linhas (1 a 20): ");
+    scanf("%d", &linhas);
+    
+    printf("Digite o numero de colunas (1 a 20): ");
+    scanf("%d", &colunas);
+
+    // 2. Validação e conversão para a faixa permitida (1 a 20)
+    if (linhas < 1) {
+        linhas = 1;
+        printf("\n[Aviso] Linhas menor que o minimo. Ajustado para 1.");
+    } else if (linhas > 20) {
+        linhas = 20;
+        printf("\n[Aviso] Linhas maior que o maximo. Ajustado para 20.");
+    }
+
+    if (colunas < 1) {
+        colunas = 1;
+        printf("\n[Aviso] Colunas menor que o minimo. Ajustado para 1.");
+    } else if (colunas > 20) {
+        colunas = 20;
+        printf("\n[Aviso] Colunas maior que o maximo. Ajustado para 20.");
+    }
+
+    // 3. Desenho do retângulo usando laços de repetição alinhados
+    printf("\n\nDesenhando retangulo (%d x %d):\n\n", linhas, colunas);
+    
+    for (int i = 0; i < linhas; i++) {       // Controla as linhas
+        for (int j = 0; j < colunas; j++) {   // Controla as colunas em cada linha
+            printf("*");
+        }
+        printf("\n"); // Pula para a próxima linha após desenhar todas as colunas
+    }
+
+    return 0;
+}
