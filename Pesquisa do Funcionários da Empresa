@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+int main() {
+    int idade, acidente;
+    float salario_bruto, salario_liquido;
+    
+    // Variáveis para os cálculos finais
+    float total_salarios_liquidos = 0.0;
+    int soma_idades_acidente = 0;
+    int qtd_acidentes = 0;
+
+    printf("=========================================\n");
+    printf("           PESQUISA DE FUNCIONARIOS      \n");
+    printf("=========================================\n");
+    printf("Para encerrar a pesquisa, digite um salario bruto negativo.\n\n");
+
+    while (1) {
+        printf("Digite o salario bruto: R$ ");
+        scanf("%f", &salario_bruto);
+
+        // Condição de parada imediata
+        if (salario_bruto < 0) {
+            break;
+        }
+
+        printf("Digite a idade: ");
+        scanf("%d", &idade);
+
+        printf("Ja sofreu acidente de trabalho? (1-Sim / 0-Nao): ");
+        scanf("%d", &acidente);
+        printf("\n"); // Pula uma linha para organizar o terminal
+
+        // Cálculo do salário líquido com base na regra do IR
+        if (salario_bruto > 1500.00) {
+            salario_liquido = salario_bruto - (salario_bruto * 0.10); // Desconto de 10%
+        } else {
+            salario_liquido = salario_bruto; // Sem desconto
+        }
+
+        // Acumula o total de salários líquidos pagos
+        total_salarios_liquidos += salario_liquido;
+
+        // Se a pessoa sofreu acidente, acumula os dados para a média de idade
+        if (acidente == 1) {
+            soma_idades_acidente += idade;
+            qtd_acidentes++;
+        }
+    }
+
+    // Exibição dos Resultados Finais
+    printf("-----------------------------------------\n");
+    printf("            RESULTADOS FINAIS            \n");
+    printf("-----------------------------------------\n");
+
+    // a) Média de idade das pessoas que sofreram acidente
+    if (qtd_acidentes > 0) {
+        float media_idade = (float)soma_idades_acidente / qtd_acidentes;
+        printf("a) Media de idade das pessoas acidentadas: %.1f anos\n", media_idade);
+    } else {
+        printf("a) Nenhuma das pessoas entrevistadas sofreu acidente de trabalho.\n");
+    }
+
+    // b) Total de salários líquidos pagos
+    printf("b) Total de salarios liquidos pagos pela empresa: R$ %.2f\n", total_salarios_liquidos);
+    printf("-----------------------------------------\n");
+
+    return 0;
+}
